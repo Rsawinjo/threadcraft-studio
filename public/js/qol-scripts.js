@@ -883,8 +883,12 @@ class CanvasDesigner {
         this.dragStart = { x: 0, y: 0 };
         this.designStart = { x: 0, y: 0, width: 0, height: 0 };
 
+        // Touch pinch-zoom state
+        this.isPinching = false;
+        this.pinchStart = { distance: 0, scale: 1 };
+
         // Constants
-        this.HANDLE_SIZE = 12;
+        this.HANDLE_SIZE = 16; // Larger for mobile touch
         this.HANDLE_OFFSET = this.HANDLE_SIZE / 2;
         this.MIN_SIZE = 20;
 
@@ -897,6 +901,19 @@ class CanvasDesigner {
         this.centerDesign();
         this.setupEventListeners();
         this.render();
+        this.setupTouchDefaults();
+    }
+
+    setupTouchDefaults() {
+        // Prevent double-tap zoom on canvas
+        this.canvas.addEventListener('touchend', (e) => {
+            if (e.cancelable) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Enable touch-action for better performance
+        this.canvas.style.touchAction = 'none';
     }
 
     setupEventListeners() {
@@ -906,9 +923,9 @@ class CanvasDesigner {
         document.addEventListener('mouseup', (e) => this.onMouseUp(e));
 
         // Touch events for mobile
-        this.canvas.addEventListener('touchstart', (e) => this.onTouchStart(e));
-        document.addEventListener('touchmove', (e) => this.onTouchMove(e));
-        document.addEventListener('touchend', (e) => this.onTouchEnd(e));
+        this.canvas.addEventListener('touchstart', (e) => this.onTouchStart(e), { passive: false });
+        document.addEventListener('touchmove', (e) => this.onTouchMove(e), { passive: false });
+        document.addEventListener('touchend', (e) => this.onTouchEnd(e), { passive: false });
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => this.onKeyDown(e));
@@ -985,26 +1002,136 @@ class CanvasDesigner {
     }
 
     onTouchStart(e) {
+        // Handle multi-touch gestures (pinch zoom)
+        if (e.touches.length === 2) {
+            this.handlePinchStart(e);
+            return;
+        }
+
+        // Single touch - treat as mouse
         const touch = e.touches[0];
-        const mouseEvent = new MouseEvent('mousedown', {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-        });
-        this.canvas.dispatchEvent(mouseEvent);
+        const rect = this.canvas.getBoundingClientRect();
+        const touchX = touch.clientX - rect.left;
+        const touchY = touch.clientY - rect.top;
+
+        if (!this.designImage) return;
+
+        const handleInfo = this.getResizeHandle(touchX, touchY);
+        if (handleInfo) {
+            this.isResizing = true;
+            this.resizeHandle = handleInfo.handle;
+            this.dragStart = { x: touchX, y: touchY };
+            this.designStart = { ...this.design };
+            e.preventDefault();
+        } else if (this.isPointInDesign(touchX, touchY)) {
+            this.isDragging = true;
+            this.dragStart = { x: touchX, y: touchY };
+            this.designStart = { ...this.design };
+            e.preventDefault();
+        }
     }
 
     onTouchMove(e) {
+        // Handle multi-touch pinch
+        if (e.touches.length === 2) {
+            this.handlePinchMove(e);
+            return;
+        }
+
+        // Single touch - treat as mouse
+        if (!this.designImage || (!this.isDragging && !this.isResizing)) return;
+
         const touch = e.touches[0];
-        const mouseEvent = new MouseEvent('mousemove', {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-        });
-        document.dispatchEvent(mouseEvent);
+        const rect = this.canvas.getBoundingClientRect();
+        const touchX = touch.clientX - rect.left;
+        const touchY = touch.clientY - rect.top;
+
+        if (this.isDragging) {
+            const deltaX = touchX - this.dragStart.x;
+            const deltaY = touchY - this.dragStart.y;
+
+            this.design.x = this.designStart.x + deltaX;
+            this.design.y = this.designStart.y + deltaY;
+
+            this.constrainToCanvas();
+            this.render();
+            e.preventDefault();
+        } else if (this.isResizing) {
+            const deltaX = touchX - this.dragStart.x;
+            const deltaY = touchY - this.dragStart.y;
+
+            // Simplified resize for touch - only use corner handles
+            if (this.resizeHandle === 'se') {
+                this.design.width = this.designStart.width + deltaX;
+                this.design.height = this.designStart.height + deltaY;
+            } else if (this.resizeHandle === 'nw') {
+                this.design.x = this.designStart.x + deltaX;
+                this.design.y = this.designStart.y + deltaY;
+                this.design.width = this.designStart.width - deltaX;
+                this.design.height = this.designStart.height - deltaY;
+            }
+
+            if (this.design.width < this.MIN_SIZE) this.design.width = this.MIN_SIZE;
+            if (this.design.height < this.MIN_SIZE) this.design.height = this.MIN_SIZE;
+
+            this.constrainToCanvas();
+            this.render();
+            e.preventDefault();
+        }
     }
 
     onTouchEnd(e) {
-        const mouseEvent = new MouseEvent('mouseup', {});
-        document.dispatchEvent(mouseEvent);
+        if (this.isPinching) {
+            this.isPinching = false;
+            this.pinchStart = { distance: 0, scale: 1 };
+        }
+
+        if (this.isDragging || this.isResizing) {
+            this.isDragging = false;
+            this.isResizing = false;
+            this.resizeHandle = null;
+            this.updateCustomizerControls();
+        }
+    }
+
+    handlePinchStart(e) {
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const dx = touch2.clientX - touch1.clientX;
+        const dy = touch2.clientY - touch1.clientY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        this.isPinching = true;
+        this.pinchStart = { distance, scale: 1 };
+        e.preventDefault();
+    }
+
+    handlePinchMove(e) {
+        if (!this.isPinching || !this.designImage) return;
+
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const dx = touch2.clientX - touch1.clientX;
+        const dy = touch2.clientY - touch1.clientY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        const scale = distance / this.pinchStart.distance;
+        const scaleChange = scale - this.pinchStart.scale;
+
+        // Apply scaling
+        this.design.width = Math.max(
+            this.MIN_SIZE,
+            this.design.width + (scaleChange * 20)
+        );
+        this.design.height = Math.max(
+            this.MIN_SIZE,
+            this.design.height + (scaleChange * 20)
+        );
+
+        this.pinchStart.scale = scale;
+        this.constrainToCanvas();
+        this.render();
+        e.preventDefault();
     }
 
     onKeyDown(e) {

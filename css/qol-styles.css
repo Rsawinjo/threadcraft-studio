@@ -1039,7 +1039,91 @@
     font-weight: 500;
 }
 
-/* Responsive adjustments */
+/* ===== MOBILE OPTIMIZATIONS ===== */
+
+/* Touch-friendly button sizing (44x44px minimum) */
+button, .btn, a.btn, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+}
+
+.btn-icon {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn {
+    width: 48px;
+    height: 48px;
+    padding: 0 !important;
+    min-width: 48px;
+    min-height: 48px;
+}
+
+.fab-main, .fab-item {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+}
+
+/* Improve touch targets for form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="range"],
+select,
+textarea {
+    min-height: 44px;
+    font-size: 1rem;
+    padding: 0.75rem;
+}
+
+input[type="range"] {
+    height: 10px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 10px 0;
+}
+
+/* Better click targets for color and size options */
+.color-option,
+.size-option,
+.product-option {
+    min-width: 50px;
+    min-height: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.color-option:active,
+.size-option:active,
+.product-option:active {
+    transform: scale(0.95);
+}
+
+/* Disable text selection when dragging on canvas */
+.design-canvas {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Improve file upload area for touch */
+.upload-area {
+    min-height: 120px;
+    -webkit-touch-callout: none;
+}
+
+/* Responsive adjustments for small screens */
 @media (max-width: 768px) {
     .positioning-controls {
         padding: 1rem;
@@ -1067,10 +1151,93 @@
 
     .design-canvas canvas {
         max-height: 300px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .canvas-info {
         font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    button, .btn, a.btn, [role="button"] {
+        min-height: 48px;
+        min-width: 48px;
+        font-size: 0.95rem;
+        padding: 0.65rem 1rem;
+    }
+
+    .control-btn {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        min-height: 52px;
+    }
+
+    /* Larger touch targets for mobile */
+    .color-option,
+    .size-option,
+    .product-option {
+        min-width: 56px;
+        min-height: 56px;
+    }
+
+    input[type="range"] {
+        height: 12px;
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    button, .btn, a.btn, [role="button"] {
+        min-height: 52px;
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .btn-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .control-btn {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        min-height: 56px;
+        font-size: 0.9rem;
+    }
+
+    .fab-main, .fab-item {
+        width: 56px;
+        height: 56px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    textarea {
+        min-height: 48px;
+        font-size: 16px;
+        padding: 0.65rem;
+    }
+
+    .color-option,
+    .size-option,
+    .product-option {
+        min-width: 60px;
+        min-height: 60px;
+    }
+
+    .design-canvas canvas {
+        max-height: 250px;
+    }
+
+    input[type="range"] {
+        height: 14px;
+        padding: 14px 0;
     }
 }
 
