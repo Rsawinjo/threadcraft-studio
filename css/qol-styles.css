@@ -998,6 +998,47 @@
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
+
+
+/* Canvas Designer Styles */
+.design-canvas {
+    position: relative;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+}
+
+.design-canvas canvas {
+    display: block;
+    width: 100%;
+    max-height: 400px;
+    cursor: grab;
+    background: #f5f5f5;
+}
+
+.design-canvas canvas:active {
+    cursor: grabbing;
+}
+
+.canvas-info {
+    padding: 0.75rem 1rem;
+    background: #1a1f2e;
+    color: #d4af37;
+    font-size: 0.85rem;
+    text-align: center;
+    border-top: 1px solid #d4af37;
+    line-height: 1.4;
+}
+
+.canvas-info small {
+    display: block;
+    color: #d4af37;
+    font-weight: 500;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .positioning-controls {
@@ -1023,4 +1064,13 @@
         padding: 0.6rem 0.8rem;
         font-size: 0.85rem;
     }
+
+    .design-canvas canvas {
+        max-height: 300px;
+    }
+
+    .canvas-info {
+        font-size: 0.75rem;
+    }
 }
+
