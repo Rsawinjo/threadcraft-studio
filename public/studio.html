@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ThreadCraft Studio Design Studio - Create your perfect custom apparel with our easy-to-use online design tool.">
+    <meta name="keywords" content="custom design tool, apparel customizer, design studio, online design">
+    <meta name="author" content="ThreadCraft Studio">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Design Studio - ThreadCraft Studio">
+    <meta property="og:description" content="Create your perfect custom apparel with our easy-to-use online design studio.">
+    <meta property="og:url" content="https://threadcraft.com/studio">
+    <meta property="og:type" content="website">
+    <title>Design Studio - ThreadCraft Studio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/qol-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navMenu" class="skip-link">Skip to navigation</a>
+
+    <!-- Navigation -->
+    <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-tshirt"></i>
+                    <span>ThreadCraft Studio</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link nav-hover-glow" aria-label="Go to home page">Home</a></li>
+                    <li><a href="products.html" class="nav-link nav-hover-slide" aria-label="View our products">Products</a></li>
+                    <li><a href="studio.html" class="nav-link nav-hover-slide active" aria-label="Open design studio">Design Studio</a></li>
+                    <li><a href="products.html#pricing" class="nav-link nav-hover-slide" aria-label="View pricing information">Pricing</a></li>
+                    <li><a href="index.html#gallery" class="nav-link nav-hover-slide" aria-label="View our work gallery">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link nav-hover-slide" aria-label="Contact us">Contact</a></li>
+                    <li class="user-account">
+                        <a href="#portal" class="nav-link account-link" aria-label="Client Portal">
+                            <i class="fas fa-user"></i>
+                            <span>Portal</span>
+                        </a>
+                        <div class="account-dropdown">
+                            <a href="#portal">Sign In</a>
+                            <a href="#portal">Order History</a>
+                            <a href="#portal">Account Settings</a>
+                        </div>
+                    </li>
+                    <li class="search-container">
+                        <form class="search-form">
+                            <input type="search" placeholder="Search..." aria-label="Search">
+                            <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+                    <li><a href="#cart" class="nav-link cart-link" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a></li>
+                    <li>
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Design Studio Section -->
+        <section id="customizer" class="customizer">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> > <a href="products.html">Products</a> > <span>Design Studio</span>
+                </nav>
+                <div class="section-header">
+                    <h2>Design Studio</h2>
+                    <p>Create your perfect custom apparel in minutes</p>
+                </div>
+                <div class="customizer-progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="Design progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 25%;"></div>
+                    </div>
+                    <div class="progress-step active" data-step="1" aria-current="step">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Select Product</span>
+                        <span class="step-check" aria-hidden="true">✓</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Customize Design</span>
+                        <span class="step-check" aria-hidden="true">✓</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Add to Cart</span>
+                        <span class="step-check" aria-hidden="true">✓</span>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <span class="step-number">4</span>
+                        <span class="step-label">Checkout</span>
+                        <span class="step-check" aria-hidden="true">✓</span>
+                    </div>
+                </div>
+                <div class="customizer-wrapper">
+                    <div class="customizer-left">
+                        <div class="product-preview">
+                            <div class="preview-container">
+                                <div id="productDisplay" class="product-display" style="background: white; width: 100%; height: 300px; border: 2px dashed #d4af37; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <div class="product-shape" style="font-size: 80px;">👕</div>
+                                </div>
+                                <div class="preview-placeholder" id="previewPlaceholder">
+                                    <i class="fas fa-image"></i>
+                                    <p>Your design will appear here</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-controls">
+                            <button class="btn-icon" id="rotateBtn" title="Rotate Design">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                            <button class="btn-icon" id="flipBtn" title="Flip Design">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                            <button class="btn-icon" id="resetBtn" title="Reset Position">
+                                <i class="fas fa-undo"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="customizer-right">
+                        <div class="design-preview-panel">
+                            <h3>Design Preview</h3>
+                            <div class="view-toggle">
+                                <button class="view-btn active" id="2dView">2D View</button>
+                                <button class="view-btn" id="3dView">3D View</button>
+                            </div>
+                            <div class="preview-tabs">
+                                <button class="preview-tab active" data-view="front">Front</button>
+                                <button class="preview-tab" data-view="back">Back</button>
+                                <button class="preview-tab" data-view="sleeve">Sleeve</button>
+                            </div>
+                            <div class="design-canvas">
+                                <canvas id="designCanvas" width="300" height="400"></canvas>
+                                <div id="3dContainer" style="display: none;">
+                                    <div class="3d-placeholder">
+                                        <i class="fas fa-cube"></i>
+                                        <p>3D Product View</p>
+                                        <small>Interactive 3D preview coming soon</small>
+                                    </div>
+                                </div>
+                                <div class="canvas-overlay">
+                                    <div class="print-area" id="printArea">
+                                        <img id="designImage" src="" alt="Design" style="max-width: 100%; max-height: 100%; object-fit: contain; display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="preview-controls">
+                                <button class="control-btn" id="zoomIn">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <button class="control-btn" id="zoomOut">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button class="control-btn" id="fitToArea">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                                <button class="control-btn" id="centerDesign">
+                                    <i class="fas fa-crosshairs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customizer-section">
+                            <h3><i class="fas fa-tshirt"></i> Select Product</h3>
+                            <div class="product-selector">
+                                <div class="product-option active" data-product="tshirt">
+                                    <i class="fas fa-tshirt"></i>
+                                    <span>T-Shirt</span>
+                                </div>
+                                <div class="product-option" data-product="hat">
+                                    <i class="fas fa-hat-cowboy"></i>
+                                    <span>Hat</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="customizer-section">
+                            <h3><i class="fas fa-palette"></i> Select Color</h3>
+                            <div class="color-selector">
+                                <div class="color-option active" data-color="#FFFFFF" style="background: #FFFFFF; border: 2px solid #ddd;"></div>
+                                <div class="color-option" data-color="#000000" style="background: #000000;"></div>
+                                <div class="color-option" data-color="#FF0000" style="background: #FF0000;"></div>
+                                <div class="color-option" data-color="#0000FF" style="background: #0000FF;"></div>
+                                <div class="color-option" data-color="#00FF00" style="background: #00FF00;"></div>
+                                <div class="color-option" data-color="#FFC107" style="background: #FFC107;"></div>
+                                <div class="color-option" data-color="#9C27B0" style="background: #9C27B0;"></div>
+                                <div class="color-option" data-color="#607D8B" style="background: #607D8B;"></div>
+                                <div class="color-option" data-color="#FF5722" style="background: #FF5722;"></div>
+                                <div class="color-option" data-color="#2196F3" style="background: #2196F3;"></div>
+                                <div class="color-option" data-color="#4CAF50" style="background: #4CAF50;"></div>
+                                <div class="color-option" data-color="#FFEB3B" style="background: #FFEB3B;"></div>
+                                <div class="color-option" data-color="#E91E63" style="background: #E91E63;"></div>
+                                <div class="color-option" data-color="#3F51B5" style="background: #3F51B5;"></div>
+                                <div class="color-option" data-color="#009688" style="background: #009688;"></div>
+                                <div class="color-option" data-color="#795548" style="background: #795548;"></div>
+                            </div>
+                            <div class="color-custom">
+                                <input type="color" id="customProductColor" value="#FFFFFF">
+                                <label for="customProductColor">Custom Color</label>
+                            </div>
+                        </div>
+
+                        <div class="customizer-section">
+                            <h3><i class="fas fa-ruler-combined"></i> Select Size</h3>
+                            <div class="size-selector">
+                                <button class="size-option" data-size="XS">XS</button>
+                                <button class="size-option" data-size="S">S</button>
+                                <button class="size-option active" data-size="M">M</button>
+                                <button class="size-option" data-size="L">L</button>
+                                <button class="size-option" data-size="XL">XL</button>
+                                <button class="size-option" data-size="XXL">XXL</button>
+                            </div>
+                        </div>
+
+                        <div class="customizer-section">
+                            <h3><i class="fas fa-upload"></i> Upload Design</h3>
+                            <div class="upload-area" id="uploadArea">
+                                <input type="file" id="designUpload" accept="image/*,.svg,.ai,.eps,.pdf" multiple hidden>
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drag & drop your design here or click to browse</p>
+                                    <span class="upload-hint">Supported: JPG, PNG, GIF, SVG (Max 5MB)</span>
+                                </div>
+                            </div>
+                            <div id="designInfo" class="design-info" style="display: none;">
+                                <div class="info-item">
+                                    <label>File Name:</label>
+                                    <span id="designFileName">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Format:</label>
+                                    <span id="designFormat">-</span>
+                                </div>
+                            </div>
+                            <div class="positioning-controls" style="display: none;" id="positioningControls">
+                                <h4><i class="fas fa-sliders-h"></i> Position & Size</h4>
+                                <div class="control-group">
+                                    <label for="posX">Horizontal Position</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="posX" min="0" max="100" value="50" class="slider">
+                                        <span id="posXValue" class="value-display">50%</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="posY">Vertical Position</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="posY" min="0" max="100" value="50" class="slider">
+                                        <span id="posYValue" class="value-display">50%</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="designSize">Design Size</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="designSize" min="10" max="200" value="100" class="slider">
+                                        <span id="sizeValue" class="value-display">100%</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="rotation">Rotation</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="rotation" min="0" max="360" value="0" class="slider">
+                                        <span id="rotationValue" class="value-display">0°</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="opacity">Opacity</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="opacity" min="0" max="100" value="100" class="slider">
+                                        <span id="opacityValue" class="value-display">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="customizer-actions">
+                                <button class="btn btn-primary btn-lg" data-action="submit">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                                <a href="index.html" class="btn btn-secondary btn-lg">
+                                    <i class="fas fa-arrow-left"></i> Back to Home
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <button class="fab-main" id="fabMain" aria-label="Quick actions" title="Quick Actions">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="fab-menu">
+            <button class="fab-item" id="fabHome" data-tooltip="Go to Home" aria-label="Go to home section">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="fab-item" id="fabTop" data-tooltip="Back to Top" aria-label="Scroll to top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            <button class="fab-item" id="fabChat" data-tooltip="Live Chat" aria-label="Open live chat">
+                <i class="fas fa-comments"></i>
+            </button>
+            <button class="fab-item" id="fabPhone" data-tooltip="Call Us" aria-label="Call our team">
+                <i class="fas fa-phone"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ThreadCraft Studio</h3>
+                    <p>Premium custom embroidery and screen printing for your apparel needs.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" title="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="studio.html">Design Studio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="products.html">Custom Embroidery</a></li>
+                        <li><a href="products.html">Screen Printing</a></li>
+                        <li><a href="products.html">Bulk Orders</a></li>
+                        <li><a href="products.html">Design Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@threadcraft.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Creative Street, Design City, DC 12345</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ThreadCraft Studio. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">Cookie Policy</a> | 
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;" role="status" aria-live="assertive" aria-label="Loading content">
+        <div class="loading-spinner">
+            <div class="spinner" aria-hidden="true"></div>
+            <p id="loadingText">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer" role="status" aria-live="polite" aria-label="Notifications"></div>
+
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip" style="display: none;" role="tooltip" aria-live="polite"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" style="display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- QoL JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/qol-scripts.js"></script>
+</body>
+</html>

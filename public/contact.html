@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact ThreadCraft Studio - Get in touch for custom apparel orders, quotes, or questions.">
+    <meta name="keywords" content="contact, custom apparel, quotes, support">
+    <meta name="author" content="ThreadCraft Studio">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Contact Us - ThreadCraft Studio">
+    <meta property="og:description" content="Get in touch with ThreadCraft Studio for custom apparel orders and quotes.">
+    <meta property="og:url" content="https://threadcraft.com/contact">
+    <meta property="og:type" content="website">
+    <title>Contact Us - ThreadCraft Studio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/qol-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navMenu" class="skip-link">Skip to navigation</a>
+
+    <!-- Navigation -->
+    <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-tshirt"></i>
+                    <span>ThreadCraft Studio</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link nav-hover-glow" aria-label="Go to home page">Home</a></li>
+                    <li><a href="products.html" class="nav-link nav-hover-slide" aria-label="View our products">Products</a></li>
+                    <li><a href="studio.html" class="nav-link nav-hover-slide" aria-label="Open design studio">Design Studio</a></li>
+                    <li><a href="products.html#pricing" class="nav-link nav-hover-slide" aria-label="View pricing information">Pricing</a></li>
+                    <li><a href="index.html#gallery" class="nav-link nav-hover-slide" aria-label="View our work gallery">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link nav-hover-slide active" aria-label="Contact us">Contact</a></li>
+                    <li class="user-account">
+                        <a href="#portal" class="nav-link account-link" aria-label="Client Portal">
+                            <i class="fas fa-user"></i>
+                            <span>Portal</span>
+                        </a>
+                        <div class="account-dropdown">
+                            <a href="#portal">Sign In</a>
+                            <a href="#portal">Order History</a>
+                            <a href="#portal">Account Settings</a>
+                        </div>
+                    </li>
+                    <li class="search-container">
+                        <form class="search-form">
+                            <input type="search" placeholder="Search..." aria-label="Search">
+                            <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+                    <li><a href="#cart" class="nav-link cart-link" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a></li>
+                    <li>
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" style="padding: 4rem 0; background: linear-gradient(135deg, #1a1f2e 0%, #2c3e50 100%); text-align: center; color: white;">
+            <div class="container">
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Get in Touch</h1>
+                <p style="font-size: 1.25rem; color: #d4af37;">We'd love to hear from you. Contact us for orders, quotes, or questions.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" style="padding: 4rem 0;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                    <!-- Contact Form -->
+                    <div>
+                        <h2 style="margin-bottom: 2rem;">Contact Form</h2>
+                        <form style="background: white; padding: 2rem; border-radius: 12px; border: 2px solid #d4af37;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Name</label>
+                                <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email</label>
+                                <input type="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Phone (Optional)</label>
+                                <input type="tel" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Subject</label>
+                                <select required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+                                    <option value="">Select a topic...</option>
+                                    <option value="order">Order Inquiry</option>
+                                    <option value="quote">Request a Quote</option>
+                                    <option value="design">Design Help</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 2rem;">
+                                <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Message</label>
+                                <textarea required rows="6" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: inherit;"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <h2 style="margin-bottom: 2rem;">Contact Information</h2>
+                        <div style="background: white; padding: 2rem; border-radius: 12px; border: 2px solid #d4af37; margin-bottom: 1.5rem;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <h3 style="color: #d4af37; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-phone"></i> Phone
+                                </h3>
+                                <p><a href="tel:+15551234567" style="color: #1a1f2e; text-decoration: none;"> (555) 123-4567</a></p>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <h3 style="color: #d4af37; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-envelope"></i> Email
+                                </h3>
+                                <p><a href="mailto:info@threadcraft.com" style="color: #1a1f2e; text-decoration: none;">info@threadcraft.com</a></p>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <h3 style="color: #d4af37; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-map-marker-alt"></i> Address
+                                </h3>
+                                <p>123 Creative Street<br>Design City, DC 12345<br>United States</p>
+                            </div>
+                            <div>
+                                <h3 style="color: #d4af37; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-clock"></i> Hours
+                                </h3>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Section -->
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #d4af37;">Frequently Asked Questions</h3>
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #ddd;">
+                            <details style="margin-bottom: 1rem; cursor: pointer;">
+                                <summary style="font-weight: 600; padding: 0.75rem 0; border-bottom: 1px solid #eee; user-select: none;">
+                                    <i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i> What is the turnaround time?
+                                </summary>
+                                <p style="padding: 1rem 0; color: #666;">Standard turnaround is 5-10 business days. Rush orders available upon request.</p>
+                            </details>
+                            <details style="margin-bottom: 1rem; cursor: pointer;">
+                                <summary style="font-weight: 600; padding: 0.75rem 0; border-bottom: 1px solid #eee; user-select: none;">
+                                    <i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i> Do you ship internationally?
+                                </summary>
+                                <p style="padding: 1rem 0; color: #666;">Yes, we ship worldwide. Shipping costs vary by location.</p>
+                            </details>
+                            <details style="margin-bottom: 0; cursor: pointer;">
+                                <summary style="font-weight: 600; padding: 0.75rem 0; user-select: none;">
+                                    <i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i> What is your return policy?
+                                </summary>
+                                <p style="padding: 1rem 0; color: #666;">30-day returns on defects. Custom items are non-returnable unless faulty.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Start Your Project?</h2>
+                    <p>Use our design studio or request a custom quote from our team</p>
+                    <div class="cta-buttons">
+                        <a href="studio.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paint-brush"></i> Start Designing
+                        </a>
+                        <a href="products.html#pricing" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-tags"></i> View Pricing
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <button class="fab-main" id="fabMain" aria-label="Quick actions" title="Quick Actions">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="fab-menu">
+            <button class="fab-item" id="fabHome" data-tooltip="Go to Home" aria-label="Go to home section">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="fab-item" id="fabTop" data-tooltip="Back to Top" aria-label="Scroll to top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            <button class="fab-item" id="fabChat" data-tooltip="Live Chat" aria-label="Open live chat">
+                <i class="fas fa-comments"></i>
+            </button>
+            <button class="fab-item" id="fabPhone" data-tooltip="Call Us" aria-label="Call our team">
+                <i class="fas fa-phone"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ThreadCraft Studio</h3>
+                    <p>Premium custom embroidery and screen printing for your apparel needs.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" title="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="studio.html">Design Studio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="products.html">Custom Embroidery</a></li>
+                        <li><a href="products.html">Screen Printing</a></li>
+                        <li><a href="products.html">Bulk Orders</a></li>
+                        <li><a href="products.html">Design Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@threadcraft.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Creative Street, Design City, DC 12345</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ThreadCraft Studio. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">Cookie Policy</a> | 
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;" role="status" aria-live="assertive" aria-label="Loading content">
+        <div class="loading-spinner">
+            <div class="spinner" aria-hidden="true"></div>
+            <p id="loadingText">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer" role="status" aria-live="polite" aria-label="Notifications"></div>
+
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip" style="display: none;" role="tooltip" aria-live="polite"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" style="display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- QoL JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/qol-scripts.js"></script>
+</body>
+</html>
