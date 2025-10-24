@@ -1,58 +1,35 @@
-﻿const http = require('http');
-const fs = require('fs');
+﻿const express = require('express');
 const path = require('path');
 
-const server = http.createServer((req, res) => {
-    console.log(`Request: ${req.method} ${req.url}`);
-    
-    // Remove query parameters and decode URI
-    let urlPath = req.url.split('?')[0];
-    let filePath;
-    
-    if (urlPath === '/' || urlPath === '') {
-        filePath = path.join(__dirname, 'printing website.html');
-    } else {
-        filePath = path.join(__dirname, decodeURIComponent(urlPath));
-    }
-    
-    console.log(`Serving file: ${filePath}`);
-    
-    // Set content type based on file extension
-    const ext = path.extname(filePath);
-    let contentType = 'text/html';
-    switch (ext) {
-        case '.css':
-            contentType = 'text/css';
-            break;
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.html':
-            contentType = 'text/html';
-            break;
-        case '.png':
-            contentType = 'image/png';
-            break;
-        case '.jpg':
-        case '.jpeg':
-            contentType = 'image/jpeg';
-            break;
-    }
-    
-    fs.readFile(filePath, (err, data) => {
+const app = express();
+const PORT = process.env.PORT || 8080;
+
+// Serve static files (CSS, JS, images)
+app.use(express.static(path.join(__dirname, '/')));
+
+// Route for root - serve index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Route for any HTML file
+app.get('/:page.html', (req, res) => {
+    const page = req.params.page;
+    const filePath = path.join(__dirname, `${page}.html`);
+    res.sendFile(filePath, (err) => {
         if (err) {
-            console.log('File not found:', filePath);
-            res.writeHead(404);
-            res.end('File not found: ' + filePath);
-            return;
+            res.status(404).sendFile(path.join(__dirname, 'index.html'));
         }
-        res.writeHead(200, {'Content-Type': contentType});
-        res.end(data);
     });
 });
 
-server.listen(8080, '127.0.0.1', () => {
-    console.log('Server running on http://127.0.0.1:8080');
-    console.log('Main page: http://127.0.0.1:8080/');
-    console.log('Server address:', server.address());
+// Fallback - if no file found, serve index.html
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Open http://localhost:${PORT} in your browser`);
+});
+
