@@ -4,8 +4,12 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Serve static files (CSS, JS, images)
-app.use(express.static(path.join(__dirname, '/')));
+// Serve static files from css and js directories
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+
+// Serve other static assets
+app.use(express.static(path.join(__dirname)));
 
 // Route for root - serve index.html
 app.get('/', (req, res) => {
